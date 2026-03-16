@@ -10,7 +10,11 @@ TTS_DIR = os.path.join(TMP_DIR, "tts")
 RESPONSES_DIR = os.path.join(TMP_DIR, "responses")
 
 # Model settings
+<<<<<<< HEAD
 DEVICE = "cuda"  
+=======
+DEVICE = "cpu"  # CPU is more stable than MPS for inference on Apple Silicon
+>>>>>>> 3543de47be1da78f59f99597c6b45b761d54b0e2
 WHISPER_MODEL_SIZE = "small"
 
 # Pronunciation analysis thresholds
