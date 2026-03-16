@@ -1,0 +1,3 @@
+.env/*
+**/__pycache__/*
+pubspeaker-frontend/npm_modules/*

@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "timestamp": "2026-03-16T21:29:54.645733",
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "machine": "AMD64",
+    "models": {
+      "whisper": "small",
+      "improvement": "grammarly/coedit-large",
+      "grammar": "vennify/t5-base-grammar-correction"
+    },
+    "memory_start_mb": null,
+    "memory_end_mb": null,
+    "total_runtime_s": 93.324
+  },
+  "results": {
+    "grammar": {
+      "status": "ok",
+      "model": "vennify/t5-base-grammar-correction",
+      "init_time_s": 3.759,
+      "latency": {
+        "count": 6,
+        "mean_ms": 1153.69,
+        "median_ms": 1055.52,
+        "p95_ms": 1703.91,
+        "min_ms": 670.61,
+        "max_ms": 1817.97
+      },
+      "accuracy_proxy": {
+        "pass_count": 3,
+        "total": 6,
+        "pass_rate": 0.5
+      },
+      "cases": [
+        {
+          "input": "he go to school every day",
+          "output": "he goes to school every day",
+          "expected_contains": [
+            "goes"
+          ],
+          "passed": true
+        },
+        {
+          "input": "she don't like pizza",
+          "output": "she doesn't like pizza",
+          "expected_contains": [
+            "doesn't"
+          ],
+          "passed": true
+        },
+        {
+          "input": "I has a dog",
+          "output": "I has a dog",
+          "expected_contains": [
+            "have"
+          ],
+          "passed": false
+        },
+        {
+          "input": "their going to the park",
+          "output": "their going to the park",
+          "expected_contains": [
+            "they're"
+          ],
+          "passed": false
+        },
+        {
+          "input": "your the best student",
+          "output": "your the best student",
+          "expected_contains": [
+            "you're"
+          ],
+          "passed": false
+        },
+        {
+          "input": "I seen the movie yesterday",
+          "output": "I saw the movie yesterday",
+          "expected_contains": [
+            "saw",
+            "have seen"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    "improvement": {
+      "status": "ok",
+      "model": "grammarly/coedit-large",
+      "init_time_s": 2.631,
+      "latency": {
+        "count": 3,
+        "mean_ms": 6620.17,
+        "median_ms": 5197.91,
+        "p95_ms": 10768.78,
+        "min_ms": 3274.83,
+        "max_ms": 11387.76
+      },
+      "quality_proxy": {
+        "changed_rate": 0.3333,
+        "avg_content_retention": 0.9048
+      },
+      "cases": [
+        {
+          "input": "I want to improve my speaking so I can explain ideas clearly in meetings.",
+          "output": "I want to improve my speaking so I can explain ideas clearly in meetings.",
+          "changed": false,
+          "content_retention": 1.0
+        },
+        {
+          "input": "The project had delays and confusion so the final presentation was not very strong.",
+          "output": "Project delays and confusion made the final presentation of no great strength.",
+          "changed": true,
+          "content_retention": 0.7143
+        },
+        {
+          "input": "When I talk fast, my message becomes unclear and people ask me to repeat.",
+          "output": "When I talk fast, my message becomes unclear and people ask me to repeat.",
+          "changed": false,
+          "content_retention": 1.0
+        }
+      ]
+    },
+    "pronunciation_coverage": {
+      "status": "ok",
+      "component": "PronunciationService canonical lookup",
+      "init_time_s": 1.018,
+      "latency": {
+        "count": 17,
+        "mean_ms": 56.97,
+        "median_ms": 0.0,
+        "p95_ms": 203.59,
+        "min_ms": 0.0,
+        "max_ms": 952.02
+      },
+      "accuracy_proxy": {
+        "coverage": 0.9412,
+        "found": 16,
+        "total": 17,
+        "missing_examples": [
+          "covfefe"
+        ]
+      }
+    }
+  }
+}
